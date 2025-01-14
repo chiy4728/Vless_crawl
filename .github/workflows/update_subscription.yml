@@ -1,0 +1,35 @@
+name: Update VLESS Subscription
+
+on:
+  schedule:
+    - cron: "0 */2 * * *"  # 每 2 小时运行一次
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'  # 或你需要的 Python 版本
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run script
+        run: python extract_vless_links.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Actions Bot" # 可以更改为你想要的名称
+          git config --global user.email "actions@wstszx.com" # 可以更改为你想要的邮箱
+          git add subscription.txt
+          git commit -m "Update subscription"
+          git push
