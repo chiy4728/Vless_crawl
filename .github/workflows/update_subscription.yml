@@ -25,3 +25,15 @@ jobs:
 
       - name: Run script
         run: python extract_vless_links.py
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "wstszx"
+          git config --global user.email "mywstszx@gmail.com"
+          git add subscription.txt
+          git commit -m "Update subscription.txt" || echo "No changes to commit"
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
