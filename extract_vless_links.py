@@ -38,4 +38,4 @@ if __name__ == "__main__":
     if result:
         with open("subscription.txt", "w", encoding="utf-8") as f:
             f.write(result)
-        print("Subscription link written to /home/wstszx/subscription.txt")
+        print("Subscription link written to subscription.txt")
