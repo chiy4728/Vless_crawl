@@ -26,10 +26,11 @@ jobs:
       - name: Run script
         run: python extract_vless_links.py
 
-      - name: Commit and push changes
-        run: |
-          git config --global user.name "GitHub Actions Bot" # 可以更改为你想要的名称
-          git config --global user.email "actions@wstszx.com" # 可以更改为你想要的邮箱
-          git add subscription.txt
-          git commit -m "Update subscription"
-          git push
+      # 这一步不再需要，因为你已经在当前仓库的当前分支中工作
+      # - name: Commit and push changes
+      #   run: |
+      #     git config --global user.name "GitHub Actions Bot"
+      #     git config --global user.email "actions@wstszx.com"
+      #     git add subscription.txt
+      #     git commit -m "Update subscription"
+      #     git push
