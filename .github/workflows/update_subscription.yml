@@ -27,7 +27,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run script
-        run: python extract_vless_links.py
+        run: python extract_links.py
 
       - name: Commit changes
         run: |
