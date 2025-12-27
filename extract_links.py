@@ -117,7 +117,7 @@ def extract_proxy_links(url):
 
 if __name__ == "__main__":
     # 你的目标 URL
-    url = "https://github.com/Alvin9999/new-pac/wiki/v2ray%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7"
+    url = "https://github.com/Alvin9999-newpac/fanqiang/wiki/v2ray%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7"
     print(f"正在从以下地址抓取链接:\n{url}\n")
     
     result = extract_proxy_links(url)
