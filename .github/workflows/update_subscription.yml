@@ -14,12 +14,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4   # 升级到 v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5   # 升级到 v5
         with:
-          python-version: '3.9'  # 或你需要的 Python 版本
+          python-version: '3.9'
 
       - name: Install dependencies
         run: |
@@ -29,14 +29,10 @@ jobs:
       - name: Run script
         run: python extract_links.py
 
-      - name: Commit changes
+      - name: Commit and push changes
         run: |
           git config --global user.name "wstszx"
           git config --global user.email "mywstszx@gmail.com"
           git add subscription.txt
           git commit -m "Update subscription.txt" || echo "No changes to commit"
-          
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          git push
